@@ -1,20 +1,24 @@
-function createGrid(h = 16, w = 16){
+function createGrid(size = 16){
+    while(size > 100){
+        size = prompt("New Size (max 100): ");
+    }
+    let pixelSize = 500 / size;
+
     let div;
-    let columna;
-    for(let x = 1; x <= w; x++){
-        columna = document.createElement("div");
-        for(let i = 1; i  <= h; i++){
+    for (let i = 0; i < size; i++) {
+        for(let j = 0; j < size; j++){
             div = document.createElement("div");
+            div.classList.add("pixel");
+            div.style.width = `${pixelSize}px`;  
+            div.style.height = `${pixelSize}px`; 
             setColorFunctionality(div);
-            columna.appendChild(div);
+            container.appendChild(div);
         }
-        container.appendChild(columna);
     }
 }
 
 function setColorFunctionality(element){
     element.addEventListener("mouseover", (event) => {
-        console.log("cambiar");
         element.style.backgroundColor = "red";
     });
     
@@ -35,10 +39,9 @@ body.insertBefore(btn, container);
 btn.textContent = "Change grid";
 
 btn.addEventListener("click", (event) => {
-    let height = prompt("Height: ");
-    let width = prompt("Width: ");
+    let size = prompt("New Size: ");
     deleteGrid();
-    createGrid(height, width);
+    createGrid(size);
 });
 
 createGrid();
