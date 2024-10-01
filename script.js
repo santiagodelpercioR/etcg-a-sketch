@@ -19,7 +19,7 @@ function createGrid(size = 16){
 
 function setColorFunctionality(element){
     element.addEventListener("mouseover", (event) => {
-        element.style.backgroundColor = "red";
+        element.style.backgroundColor = getRandomColor();
     });
     
 }
@@ -29,6 +29,15 @@ function deleteGrid(){
         container.removeChild(container.lastChild);
     }
 }
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 
 const container = document.querySelector(".grid-container");
 const body = document.querySelector("body");
