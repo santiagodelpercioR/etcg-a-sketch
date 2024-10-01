@@ -1,20 +1,28 @@
 body {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .grid-container{
+    align-self: center;
     display: flex;
     margin-top: 20px;
     justify-content: center;
-    background-color: red;
+    background-color: rgb(196, 23, 23);
     width: 1000px;
     height: 1000px;
 }
 
 .grid-container div{
-    background-color: blue;
-    border: 1px solid green;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
     height: 30px;
     width: 30px;
+}
+
+button {
+    align-self: center;
+    height: 50px;
+    width: 100px;
 }
